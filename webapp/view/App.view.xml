@@ -15,7 +15,7 @@
 					</content>
 					<footer>
 						<Bar>
-							<contentMiddle><Link text="myText" href="https://www.imdb.com/" /></contentMiddle>
+							<contentMiddle><Link text="{i18n>imdbExplore}" target="_blank" href="https://www.imdb.com/" /></contentMiddle>
 						</Bar>
 					</footer>
 				</Page>
