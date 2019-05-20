@@ -22,7 +22,6 @@
 			}
 		}
 	},
-
 	"sap.ui": {
 		"technology": "UI5",
 		"icons": {
@@ -39,7 +38,6 @@
 			"phone": true
 		}
 	},
-
 	"sap.ui5": {
 		"rootView": {
 			"viewName": "opensap.movies.view.App",
@@ -80,9 +78,11 @@
 			}
 		},
 		"resources": {
-			"css": [{
-				"uri": "css/style.css"
-			}]
+			"css": [
+				{
+					"uri": "css/style.css"
+				}
+			]
 		},
 		"routing": {
 			"config": {
@@ -92,13 +92,24 @@
 				"controlId": "app",
 				"controlAggregation": "pages",
 				"async": true,
-				"clearControlAggregation" : false
+				"clearControlAggregation": false
 			},
 			"routes": [
 				{
 					"pattern": "RouteApp",
-					"name": "RouteApp",
-					"target": ["TargetApp"]
+					"name": "TargetApp",
+					"target": [
+						"TargetApp"
+					]
+				},
+				{
+					"name": "Detail",
+					"pattern": "movies/{movieId}/appointments/{appointmentId}",
+					"titleTarget": "",
+					"greedy": false,
+					"target": [
+						"Detail"
+					]
 				}
 			],
 			"targets": {
@@ -106,9 +117,14 @@
 					"viewName": "App",
 					"viewLevel": 1,
 					"title": "{i18n>title}",
-					"clearControlAggregation" : false
+					"clearControlAggregation": false
+				},
+				"Detail": {
+					"viewType": "XML",
+					"viewName": "Detail"
 				}
 			}
-		}
+		},
+		"flexEnabled": true
 	}
 }
