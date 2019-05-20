@@ -1,7 +1,7 @@
 /*global QUnit*/
 
 sap.ui.define([
-	"sap/ui/demo/basicTemplate/model/formatter"
+	"opensap/movies/model/formatter"
 ], function() {
 	"use strict";
 

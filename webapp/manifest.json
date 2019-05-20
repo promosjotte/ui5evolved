@@ -1,7 +1,7 @@
 {
 	"_version": "1.12.0",
 	"sap.app": {
-		"id": "sap.ui.demo.basicTemplate",
+		"id": "opensap.movies",
 		"type": "application",
 		"i18n": "i18n/i18n.properties",
 		"applicationVersion": {
@@ -42,7 +42,7 @@
 
 	"sap.ui5": {
 		"rootView": {
-			"viewName": "sap.ui.demo.basicTemplate.view.App",
+			"viewName": "opensap.movies.view.App",
 			"type": "XML",
 			"async": true,
 			"id": "app"
@@ -63,7 +63,7 @@
 			"i18n": {
 				"type": "sap.ui.model.resource.ResourceModel",
 				"settings": {
-					"bundleName": "sap.ui.demo.basicTemplate.i18n.i18n"
+					"bundleName": "opensap.movies.i18n.i18n"
 				}
 			},
 			"data": {
@@ -84,24 +84,25 @@
 			"config": {
 				"routerClass": "sap.m.routing.Router",
 				"viewType": "XML",
-				"viewPath": "sap.ui.demo.basicTemplate.view",
+				"viewPath": "opensap.movies.view",
 				"controlId": "app",
 				"controlAggregation": "pages",
-				"async": true
+				"async": true,
+				"clearControlAggregation" : false
 			},
 			"routes": [
 				{
-					"pattern": "",
-					"name": "home",
-					"target": ["home"]
+					"pattern": "RouteApp",
+					"name": "RouteApp",
+					"target": ["TargetApp"]
 				}
 			],
 			"targets": {
-				"home": {
-					"viewName": "Home",
-					"viewId": "home",
+				"TargetApp": {
+					"viewName": "App",
 					"viewLevel": 1,
-					"title": "{i18n>title}"
+					"title": "{i18n>title}",
+					"clearControlAggregation" : false
 				}
 			}
 		}

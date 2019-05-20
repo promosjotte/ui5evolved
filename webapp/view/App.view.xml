@@ -3,6 +3,23 @@
 	xmlns="sap.m"
 	xmlns:mvc="sap.ui.core.mvc">
 	<Shell>
-		<App id="app"/>
+		<App id="app">
+			<pages>
+				<Page title="{i18n>title}">
+					<content> 
+						<Image
+							src="images/MoviesHeader.png"
+							width="100%"
+							tooltip="Movie illustration">
+						</Image>
+					</content>
+					<footer>
+						<Bar>
+							<contentMiddle><Link text="myText" href="https://www.imdb.com/" /></contentMiddle>
+						</Bar>
+					</footer>
+				</Page>
+			</pages>
+		</App>
 	</Shell>
 </mvc:View>
