@@ -66,6 +66,10 @@
 					"bundleName": "opensap.movies.i18n.i18n"
 				}
 			},
+			"movies": {
+				"type": "sap.ui.model.json.JSONModel",
+				"uri": "model/Movies.json"
+			},
 			"data": {
 				"type": "sap.ui.model.odata.v2.ODataModel",
 				"dataSource": "mainService",
