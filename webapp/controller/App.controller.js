@@ -3,8 +3,9 @@ sap.ui.define([
 	"opensap/movies/model/formatter",
 	"sap/base/Log",
 	"sap/ui/model/Filter",
-	"sap/ui/model/FilterOperator"
-], function(Controller, formatter, Log, Filter, FilterOperator) {
+	"sap/ui/model/FilterOperator",
+	"sap/ui/core/UIComponent"
+], function(Controller, formatter, Log, Filter, FilterOperator, UIComponent) {
 	"use strict";
 
 	return Controller.extend("opensap.movies.controller.App", {
@@ -56,6 +57,19 @@ sap.ui.define([
 				oAppointmentsBinding.filter(oFilterCity);
 			});
 
+		},
+
+		onAppointmentSelect: function (oAppointment) {
+			Log.info("tada");
+			var oContext = oAppointment.getBindingContext("movies"),
+				sPath = oContext.getPath();
+
+			var aParameters = sPath.split("/");
+			UIComponent.getRouterFor(this).navTo("Detail", {
+				movieId: aParameters[2],
+				appointmentId: aParameters[4]
+			});
 		}
+
 	});
 });

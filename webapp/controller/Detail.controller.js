@@ -1,6 +1,7 @@
 sap.ui.define([
-	"sap/ui/core/mvc/Controller"
-], function (Controller) {
+	"sap/ui/core/mvc/Controller",
+	"sap/ui/core/UIComponent"
+], function (Controller, UIComponent) {
 	"use strict";
 
 	return Controller.extend("opensap.movies.controller.Detail", {
@@ -11,8 +12,39 @@ sap.ui.define([
 		 * @memberOf opensap.movies.view.Detail
 		 */
 		onInit: function () {
-
+			UIComponent.getRouterFor(this).getRoute("Detail").attachPatternMatched(this._onDetailMatched, this);
 		},
+
+		_onDetailMatched : function (oEvent) {
+			var oView = this.getView(),
+				sMovieIndex = oEvent.getParameter("arguments")["movieId"],
+				sAppointmentIndex = oEvent.getParameter("arguments")["appointmentId"];
+
+			oView.bindElement({
+				path: "/movies/" + sMovieIndex + "/appointments/" + sAppointmentIndex,
+				model: "movies",
+				events: {
+					change : this._onBindingChange.bind(this)
+				}
+			});
+		},
+
+		_onBindingChange : function () {
+			var oView = this.getView(),
+				oElementBinding = oView.getElementBinding("movies"),
+				sPath = oElementBinding.getPath();
+
+			// if the path to the data does not exist we navigate to the not found page
+			if (!oView.getModel("movies").getObject(sPath)) {
+				//See Challenge at the end: 	UIComponent.getRouterFor(this).getTargets().display("NotFound");
+			}
+		},
+
+		onNavBack : function () {
+			UIComponent.getRouterFor(this).navTo("Home");
+		}
+
+
 
 		/**
 		 * Similar to onAfterRendering, but this hook is invoked before the controller's View is re-rendered

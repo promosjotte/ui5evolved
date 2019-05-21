@@ -96,10 +96,10 @@
 			},
 			"routes": [
 				{
-					"pattern": "RouteApp",
-					"name": "TargetApp",
+					"pattern": "",
+					"name": "Home",
 					"target": [
-						"TargetApp"
+						"Home"
 					]
 				},
 				{
@@ -113,7 +113,7 @@
 				}
 			],
 			"targets": {
-				"TargetApp": {
+				"Home": {
 					"viewName": "App",
 					"viewLevel": 1,
 					"title": "{i18n>title}",
