@@ -114,7 +114,7 @@
 			],
 			"targets": {
 				"Home": {
-					"viewName": "App",
+					"viewName": "Home",
 					"viewLevel": 1,
 					"title": "{i18n>title}",
 					"clearControlAggregation": false
